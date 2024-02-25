@@ -1,12 +1,41 @@
 #!ipxe
 ###
-### netboot.xyz-custom menu
+### {{ site_name }} XCP-NG Boot Menu
 ###
 
-:start
-echo Hello world!
-sleep 10
+:custom
+clear custom_choice
+menu This is a Test Menu
+item --gap This is the first sub menu
+item option_one ${space} Loading a kernel and initrd
+item option_two ${space} Loading an ISO
+item --gap This is a second sub menu
+item option_three ${space} Loads another custom sub menu
+item option_four ${space} This is option four
+choose custom_choice || goto custom_exit
+echo ${cls}
+goto ${custom_choice}
 goto custom_exit
 
+:option_one
+kernel http://path.to/vmlinuz
+initrd http://path.to/initrd
+imgargs vmlinuz put_kernel_img_args_here
+boot || goto custom_exit
+
+#/asset-mirror/releases/download/asset-mirror/releases/download//3.1-1-e7504e47/
+
+:option_two
+set kernel_url ${live_endpoint}/asset-mirror/releases/download/8.2-7ff523e1/
+
+kernel ${kernel_url}vmlinux init.stage2=${kernel_url}install.img
+#initrd ${kernel_url}initrd
+#initrd ${kernel_url}install.img /install.img
+boot || goto custom_exit
+
+:option_three
+echo Chains into another menu...
+chain custom1.ipxe || goto custom
+
 :custom_exit
-exit 0
+exit
