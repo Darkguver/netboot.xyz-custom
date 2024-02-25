@@ -26,9 +26,6 @@ boot || goto custom_exit
 #/asset-mirror/releases/download/asset-mirror/releases/download//3.1-1-e7504e47/
 
 :option_two
-set http_server http://10.90.99.1:8080
-set kernel_url ${http_server}/asset-mirror/releases/download/8.2-7ff523e1/
-
 chain http://10.90.99.1:8080/test/xen.ipxe
 boot
 
