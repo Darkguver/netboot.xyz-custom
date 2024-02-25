@@ -24,7 +24,7 @@ imgargs vmlinuz put_kernel_img_args_here
 boot || goto custom_exit
 
 :option_two
-chain http://10.90.99.1:8080/test/xen.ipxe
+chain http://10.90.99.1:8080/xcp/EFI/xenserver/grubx64.efi
 boot
 
 :option_three
