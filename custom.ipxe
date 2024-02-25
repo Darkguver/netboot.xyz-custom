@@ -26,7 +26,8 @@ boot || goto custom_exit
 #/asset-mirror/releases/download/asset-mirror/releases/download//3.1-1-e7504e47/
 
 :option_two
-set kernel_url ${live_endpoint}/asset-mirror/releases/download/8.2-7ff523e1/
+set http_server 10.90.99.1:8080
+set kernel_url ${http_server}/asset-mirror/releases/download/8.2-7ff523e1/
 
 kernel ${kernel_url}vmlinux init.stage2=${kernel_url}install.img
 #initrd ${kernel_url}initrd
