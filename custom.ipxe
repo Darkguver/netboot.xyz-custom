@@ -5,7 +5,7 @@
 
 :custom
 clear custom_choice
-menu This is a Test Menu 2
+menu This is a Test Menu new
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
@@ -22,8 +22,6 @@ kernel http://path.to/vmlinuz
 initrd http://path.to/initrd
 imgargs vmlinuz put_kernel_img_args_here
 boot || goto custom_exit
-
-#/asset-mirror/releases/download/asset-mirror/releases/download//3.1-1-e7504e47/
 
 :option_two
 chain http://10.90.99.1:8080/test/xen.ipxe
