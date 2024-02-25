@@ -29,7 +29,7 @@ boot || goto custom_exit
 set http_server 10.90.99.1:8080
 set kernel_url ${http_server}/asset-mirror/releases/download/8.2-7ff523e1/
 
-kernel ${kernel_url}xen dom0_max_vcpus=1-2 dom0_mem=max:752M com1=115200,8n1 console=com1,vga
+kernel ${kernel_url}xen.gz dom0_max_vcpus=1-2 dom0_mem=max:752M com1=115200,8n1 console=com1,vga
 module ${kernel_url}/vmlinux xencons=hvc console=hvc0 console=tty0
 module ${kernel_url}/install.img
 boot
