@@ -10,7 +10,7 @@ item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
 item --gap This is a second sub menu
-item option_three ${space} Loads another custom sub menu
+item option_three ${space} XCP-NG ISO LOAD 
 item option_four ${space} This is option four
 choose custom_choice || goto custom_exit
 echo ${cls}
@@ -27,14 +27,10 @@ boot || goto custom_exit
 chain http://10.90.99.1:8080/test/xen.ipxe
 boot
 
-kernel ${kernel_url}vmlinux init.stage2=${kernel_url}install.img
-#initrd ${kernel_url}initrd
-#initrd ${kernel_url}install.img /install.img
-boot || goto custom_exit
-
 :option_three
-echo Chains into another menu...
-chain custom1.ipxe || goto custom
+kernel https://boot.netboot.xyz/memdisk raw iso
+initrd http://10.90.99.1:8080/test/xcp-ng-8.2.1-20231130-netinstall.iso
+boot || goto custom_exit
 
 :custom_exit
 exit
