@@ -26,7 +26,7 @@ boot || goto custom_exit
 #/asset-mirror/releases/download/asset-mirror/releases/download//3.1-1-e7504e47/
 
 :option_two
-set http_server 10.90.99.1:8080
+set http_server http://10.90.99.1:8080
 set kernel_url ${http_server}/asset-mirror/releases/download/8.2-7ff523e1/
 
 kernel ${kernel_url}xen.gz dom0_max_vcpus=1-2 dom0_mem=max:752M com1=115200,8n1 console=com1,vga
